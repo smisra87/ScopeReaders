@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using a Reader &mdash; ScopeReaders 0.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Creating a Reader" href="plot_example_reader.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> ScopeReaders
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about.html">ScopeReaders</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples &amp; Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="plot_example_reader.html">Creating a Reader</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Using a Reader</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#import-all-necessary-packages">Import all necessary packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#open-a-file-dialog">Open a file dialog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#read-file">Read file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-file">Plot file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ScopeReaders</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Examples &amp; Tutorials</a> &raquo;</li>
+        
+      <li>Using a Reader</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/auto_examples/plot_dm3_reader.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-dm3-reader-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="using-a-reader">
+<span id="sphx-glr-auto-examples-plot-dm3-reader-py"></span><h1>Using a Reader<a class="headerlink" href="#using-a-reader" title="Permalink to this headline">¶</a></h1>
+<p><strong>Gerd Duscher</strong></p>
+<p>9/08/2020</p>
+<p>This document illustrates an example of extracting data out of dm3
+(Digital Micrograph) file.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Digital Micrograph from Gatan runs on many TEMs for data acquisition.
+We read and plot such files here.</p>
+<div class="section" id="import-all-necessary-packages">
+<h3>Import all necessary packages<a class="headerlink" href="#import-all-necessary-packages" title="Permalink to this headline">¶</a></h3>
+<p>There are a few setup procedures that need to be followed before any code is written. In this step, we simply load a
+few python packages that will be necessary in the later steps.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../../sidpy&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sidpy.io.interface_utils</span> <span class="kn">import</span> <span class="n">openfile_dialog</span><span class="p">,</span> <span class="n">get_QT_app</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">ScopeReaders.em.tem.dm3_reader</span> <span class="kn">import</span> <span class="n">DM3Reader</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="open-a-file-dialog">
+<h3>Open a file dialog<a class="headerlink" href="#open-a-file-dialog" title="Permalink to this headline">¶</a></h3>
+<p>Here we select the name of the file to open. We will be using the sidpy interface to do that.
+We start QT as a backend for the dialog first (in a notebook the magic command <code class="docutils literal notranslate"><span class="pre">%gui</span> <span class="pre">qt5</span></code>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">get_QT_app</span><span class="p">()</span>
+
+<span class="c1"># Then we can open QT file dialog to select a file</span>
+
+<span class="n">file_name</span> <span class="o">=</span> <span class="n">openfile_dialog</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+<span class="c1"># catch a bad selection or cancelling of file selection</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">or</span> <span class="n">file_name</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span> <span class="o">!=</span> <span class="s1">&#39;.dm3&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;File not supported&#39;</span><span class="p">)</span>
+    <span class="n">exit</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/home/travis/build/pycroscopy/ScopeReaders/examples/plot_dm3_reader.py&quot;</span>, line <span class="m">39</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">get_QT_app</span><span class="p">()</span>
+  File <span class="nb">&quot;/home/travis/virtualenv/python3.7.1/lib/python3.7/site-packages/sidpy/io/interface_utils.py&quot;</span>, line <span class="m">41</span>, in <span class="n">get_QT_app</span>
+    <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span><span class="s1">&#39;Required package PyQt5 not available&#39;</span><span class="p">)</span>
+<span class="gr">ModuleNotFoundError</span>: <span class="n">Required package PyQt5 not available</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="read-file">
+<h3>Read file<a class="headerlink" href="#read-file" title="Permalink to this headline">¶</a></h3>
+<p>We use the ScopeReader to read the file into a sidpy dataset.
+All metadata (absolutely everything) is saved in the <code class="docutils literal notranslate"><span class="pre">original_metadata</span></code> attribute
+of the sidpy Dataset. If the selected file is not a dm3 File you get an <code class="docutils literal notranslate"><span class="pre">IOError</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dm3_reader</span> <span class="o">=</span> <span class="n">DM3Reader</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dm3_reader</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot-file">
+<h3>Plot file<a class="headerlink" href="#plot-file" title="Permalink to this headline">¶</a></h3>
+<p>Only one command is necessary to plot the file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.009 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-dm3-reader-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/c934d0dca0e9cf72cefcce9f512d27a4/plot_dm3_reader.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_dm3_reader.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/35f6464e4a6c7e739966e6504b072e98/plot_dm3_reader.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_dm3_reader.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="plot_example_reader.html" class="btn btn-neutral float-left" title="Creating a Reader" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Pycroscopy contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
